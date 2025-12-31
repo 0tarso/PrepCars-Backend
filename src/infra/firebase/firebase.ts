@@ -1,8 +1,10 @@
 import admin from "firebase-admin"
-import serviceAccount from "../../../serviceAccount.json"
+
+//@ts-expect-error
+const firebaseAccount = JSON.parse(process.env.FIREBASE_ACCOUNT)
 
 admin.initializeApp({
-  credential: admin.credential.cert(serviceAccount as admin.ServiceAccount)
+  credential: admin.credential.cert(firebaseAccount)
 })
 
 export const firebaseFirestore = admin.firestore()
