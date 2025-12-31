@@ -10,7 +10,9 @@
     "start:dev": "tsx --env-file=.env src/server.ts",
     "start:watch-local": "tsx --env-file=.env.local --watch src/server.ts",
     "dist": "tsup src",
-    "start:dist": "npm run dist && --env-file=.env node/server.js"
+    "start:dist": "npm run dist && --env-file=.env node/server.js",
+    "build": "tsup src/server.ts --format cjs --out-dir dist",
+    "start": "node dist/server.js"
   },
   "devDependencies": {
     "@types/axios": "^0.9.36",
